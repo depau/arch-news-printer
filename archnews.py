@@ -77,7 +77,7 @@ def main(argv=sys.argv):
         sys.stdout.flush()
 
         desc = item.findall("description")[0].text
-        p = subprocess.Popen(["lynx", "-dump", "-stdin"], stdin=subprocess.PIPE)
+        p = subprocess.Popen(["lynx", "-dump", "-stdin", "-assume_charset=utf-8"], stdin=subprocess.PIPE)
         p.communicate(desc.encode())
         p.wait()
         sys.stdout.flush()
